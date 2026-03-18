@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#f8fafc"/>
+  <rect x="20" y="20" width="1160" height="70" rx="12" fill="#0f172a"/>
+  <text x="50" y="65" fill="#e2e8f0" font-size="30" font-family="Arial">Market Forecast Dashboard · Single Asset</text>
+  <rect x="20" y="110" width="760" height="360" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="145" fill="#334155" font-size="22" font-family="Arial">Price vs Forecast</text>
+  <polyline points="45,390 130,350 220,330 300,290 380,300 470,260 560,240 650,220 740,180" fill="none" stroke="#2563eb" stroke-width="4"/>
+  <polyline points="45,405 130,360 220,350 300,320 380,315 470,280 560,260 650,240 740,210" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="12 8"/>
+  <rect x="800" y="110" width="380" height="170" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="820" y="145" fill="#334155" font-size="20" font-family="Arial">Tiered Signal Card</text>
+  <text x="820" y="180" fill="#16a34a" font-size="30" font-family="Arial" font-weight="bold">BUY</text>
+  <text x="820" y="215" fill="#475569" font-size="18" font-family="Arial">tier1: buy · tier2: hold · tier3: buy</text>
+  <text x="820" y="245" fill="#475569" font-size="18" font-family="Arial">regime: risk_on</text>
+  <rect x="800" y="300" width="380" height="170" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="820" y="335" fill="#334155" font-size="20" font-family="Arial">Risk / Regime Distribution</text>
+  <text x="820" y="368" fill="#475569" font-size="18" font-family="Arial">avg_volatility: 0.011</text>
+  <text x="820" y="396" fill="#475569" font-size="18" font-family="Arial">recent_volatility: 0.012</text>
+  <text x="820" y="424" fill="#475569" font-size="18" font-family="Arial">lookback_days: 63</text>
+  <rect x="20" y="490" width="1160" height="190" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="40" y="525" fill="#334155" font-size="22" font-family="Arial">Forecast Horizon Table</text>
+  <text x="40" y="560" fill="#475569" font-size="18" font-family="Arial">1w: +12.5 bps · 2w: +18.2 bps · 4w: +21.0 bps · 8w: +9.4 bps · 12w: -4.1 bps</text>
+</svg>

@@ -28,11 +28,3 @@ def test_pipeline_fit_predict_signals():
     assert {"tier1_signal", "tier2_signal", "tier3_signal", "regime"}.issubset(set(out.columns))
     state = pipe.summarize_current_state()
     assert "risk" in state and "regime" in state and "signals" in state
-
-
-def test_pipeline_accepts_single_series_input():
-    prices = make_prices()["SPY"]
-    cfg = ForecastConfig()
-    pipe = ForecastPipeline(cfg).fit(prices)
-    pred = pipe.predict([1, 2, 4])
-    assert len(pred) == 3

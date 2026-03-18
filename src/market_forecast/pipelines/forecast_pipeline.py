@@ -40,7 +40,7 @@ class ForecastPipeline:
             feat = feat.join(technical_features(prices), how="left")
         return feat
 
-    def fit(self, prices: pd.DataFrame | pd.Series, target_col: str | None = None) -> "ForecastPipeline":
+    def fit(self, prices: pd.DataFrame, target_col: str | None = None) -> "ForecastPipeline":
         prices = validate_prices(prices)
         self.prices = prices
         self.returns = returns_from_prices(prices)
