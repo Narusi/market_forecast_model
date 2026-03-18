@@ -64,6 +64,56 @@ signals = pipeline.generate_signals(pred)
 state = pipeline.summarize_current_state()
 ```
 
+
+## Dashboard app entrypoint
+
+Run the dashboard in Streamlit with serialized artifacts for predictions, signals, and state summary:
+
+```bash
+streamlit run src/market_forecast/dashboard/app.py
+```
+
+The sidebar includes an explicit mode selector:
+- `Single Asset`: renders forecast horizon table, tiered signal card, and risk/regime distribution card.
+- `Multi Asset`: renders EWMA correlation heatmap, asset signal matrix, and portfolio risk decomposition.
+
+Expected artifact files:
+- `artifacts/predictions.csv` (or `.json` / `.parquet`)
+- `artifacts/signals.csv` (or `.json` / `.parquet`)
+- `artifacts/state_summary.json`
+- `artifacts/returns.csv` for multi-asset mode
+
+### UI smoke test instructions
+
+1. Install dashboard dependencies:
+   ```bash
+   pip install -e .[dashboard,dev]
+   ```
+2. Create sample artifacts (or use your pipeline output) in `artifacts/`.
+3. Launch the app:
+   ```bash
+   streamlit run src/market_forecast/dashboard/app.py
+   ```
+4. Verify in **Single Asset** mode:
+   - Price vs Forecast chart appears.
+   - Forecast horizon table contains `horizon_weeks` and `predicted_move_bps`.
+   - Tiered signal card shows overall/tier signals and regime.
+   - Risk/regime distribution table is populated.
+5. Switch to **Multi Asset** mode and verify:
+   - EWMA correlation heatmap renders.
+   - Asset signal matrix renders.
+   - Portfolio risk decomposition table is populated and sorted by risk contribution.
+
+### Screenshot artifacts
+
+Single-asset dashboard mock:
+
+![single asset dashboard](docs/screenshots/single_asset_dashboard.svg)
+
+Multi-asset dashboard mock:
+
+![multi asset dashboard](docs/screenshots/multi_asset_dashboard.svg)
+
 ## CLI
 
 ```bash
