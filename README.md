@@ -25,6 +25,21 @@ Optional extras:
 pip install -e .[market,dashboard,dev]
 ```
 
+Install pinned core requirements with explicit constraints:
+
+```bash
+pip install -r requirements/core.txt -c requirements/constraints.txt
+```
+
+Bootstrap environment with wheelhouse-aware install behavior:
+
+```bash
+bash scripts/bootstrap_env.sh
+```
+
+## Wheelhouse guidance
+
+To prepare dependencies for offline or restricted environments, pre-download distributions into a local `wheelhouse/` directory and reuse them on target machines.
 
 ## Install from GitHub
 
@@ -49,6 +64,28 @@ pip install "git+https://github.com/your-org/market_forecast_model.git@<commit_s
 ```
 
 If your repository is private, authenticate with a personal access token or SSH URL and ensure your environment has access rights.
+
+## No internet / restricted proxy
+
+On a machine with internet access:
+
+```bash
+pip download -r requirements/core.txt -d wheelhouse
+```
+
+Transfer the `wheelhouse/` directory to the target machine (for example via `scp`, artifact storage, or removable media).
+
+On the target machine:
+
+```bash
+pip install --no-index --find-links=wheelhouse -r requirements/core.txt
+```
+
+If you also copy this repository, you can use the bootstrap helper and it will automatically prefer `wheelhouse/` when available:
+
+```bash
+bash scripts/bootstrap_env.sh
+```
 
 ## Quick start
 
