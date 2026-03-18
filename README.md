@@ -1,5 +1,8 @@
 # market-forecast
 
+[![CI](https://github.com/your-org/market_forecast_model/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/market_forecast_model/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-%3E%3D80%25-brightgreen)](https://github.com/your-org/market_forecast_model/actions/workflows/ci.yml)
+
 `market-forecast` is a Python package for 1 to 12 week market movement forecasting with reusable time-series core components.
 
 ## Features in this MVP
@@ -109,3 +112,31 @@ mforecast --help
 
 ## Colab
 Open and run `notebooks/market_forecast_colab_demo.ipynb` in Google Colab.
+
+
+## CI
+
+GitHub Actions runs the following checks on Python 3.11:
+- `ruff check .`
+- `black --check .`
+- `mypy src`
+- `pytest` with coverage enforcement (`--cov-fail-under=80`)
+
+A notebook smoke test job is also available as an optional `workflow_dispatch` input (`run_notebook_smoke`).
+
+## Local pre-commit hooks
+
+Install and enable local hooks:
+
+```bash
+pip install -e .[dev]
+pre-commit install
+```
+
+Run all hooks locally:
+
+```bash
+pre-commit run --all-files
+```
+
+The configured hooks run `ruff`, `black`, `mypy`, and `pytest` via `.pre-commit-config.yaml`.
